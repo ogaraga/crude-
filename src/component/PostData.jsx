@@ -36,6 +36,7 @@ function PostData(props){
                 navigate("/dataList")
                 return response 
             }else{
+                alert('Check the name entered, perhaps someone already has it in the database!')
                 console.log('response not ok while fetching data!')      
                 
             }
