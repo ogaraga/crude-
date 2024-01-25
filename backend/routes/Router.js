@@ -3,6 +3,9 @@ import User from '../model/Data.js';
 export const router = express.Router();
 
 router.get('/data', async (req, res)=>{
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
+  
     const user = await User.find();
     if(user){
         try {
@@ -16,6 +19,9 @@ router.get('/data', async (req, res)=>{
     
 })
 router.post('/data', async (req, res)=>{
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
+  
         const {name}=req.body
         const exists = await User.findOne({name})
         if(exists){
@@ -36,7 +42,10 @@ router.post('/data', async (req, res)=>{
     
    })
    router.put('/data/:_id', async (req, res)=>{
-       
+
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
+  
     try {
         const newUser = await User.findByIdAndUpdate(req.params._id,{$set: req.body}, {returnOriginal: false});
         if(newUser){
@@ -50,22 +59,6 @@ router.post('/data', async (req, res)=>{
    })
 
 
-  export const allowCors = fn => async (req, res) => {
-    res.setHeader('Access-Control-Allow-Credentials', true)
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    // another common pattern
-    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-    )
-    if (req.method === 'OPTIONS') {
-      res.status(200).end()
-      return
-    }
-    return await fn(req, res)
-  }
   
 
 
