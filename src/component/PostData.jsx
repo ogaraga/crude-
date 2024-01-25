@@ -21,6 +21,7 @@ function PostData(props){
                 cors: "cors",
                 headers:{
                     "Content-Type":"application/json",
+                    "Control-Allow-Origin": "*",
                 },
                 body: JSON.stringify({
                    name,
