@@ -13,6 +13,8 @@ app.use(express.json());
 app.use('/', router);
 mongoose.connect(process.env.Base_URL).then(()=>console.log('connection to database granted')).catch(()=>console.error('Conection to database denied'));
 
+  
+
 app.listen(PORT, ()=> console.log(`Server started on ${PORT}`));
 
 
