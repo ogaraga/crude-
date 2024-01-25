@@ -33,7 +33,7 @@ function PostData(props){
             const response = await fetch("http://localhost:5500/data",options)
             if(response.ok){
                 alert('details captured and saved');
-                navigate("/DataList")
+                navigate("/dataList")
                 return response 
             }else{
                 console.log('response not ok while fetching data!')      
