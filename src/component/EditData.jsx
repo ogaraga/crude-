@@ -15,7 +15,7 @@ function EditData(props){
                 cors: "cors",
                 headers:{
                     "Content-Type":"application/json",
-                    "Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Origin": "*",
                 },
                 body: JSON.stringify({
                    _id, 
